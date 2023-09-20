@@ -130,7 +130,7 @@ const ImageGrid = () => {
   };
 
   return (
-    <div className="grid-container px-[40px]">
+    <div className="grid-container px-[100px] max-sm:px-[40px]">
       <div className="w-full flex flex-row content-center justify-between">
         <h1 className="font-rale font-bold tracking-wider text-4xl py-[60px] uppercase max-sm:hidden">
           latest works

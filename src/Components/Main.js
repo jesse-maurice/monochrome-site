@@ -20,11 +20,11 @@ const Main = () => {
 
         <div className=" min-h-screen flex items-center absolute inset-0  justify-center">
           <div className=" text-center w-[800px]">
-            <h1 className=" font-rale capitalize font-black leading-loose max-sm:leading-[35px] text-[#ffffff] md:text-5xl lg:text-[45px] px-4 max-sm:text-[30px]  ">
+            <h1 className=" font-rale capitalize font-black max-sm:leading-[35px] text-[#ffffff] md:text-5xl lg:text-[45px] px-4 max-sm:text-[30px]  ">
               providing afrocentric stock images for your business and
               creativity.
             </h1>
-            <p className=" capitalize mt-2 text-[20px] md:text-[12px] max-sm:text-[16px] lg:text-[20px] text-[#9e9c9c]">
+            <p className=" capitalize mt-2 text-[20px] md:text-[20px] max-sm:text-[16px] lg:text-[20px] text-[#9e9c9c]">
               we are a stock image company that focuses on providing timeless
               elegance of monochromatic photography for your business and
               creative needs.
