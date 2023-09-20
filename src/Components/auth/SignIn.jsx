@@ -21,7 +21,7 @@ const SignIn = () => {
       // For example, redirect to a protected page.
       setError("");
       // Redirect to the login page or perform any other actions you need
-      navigate('/src/Components/Main.js'); // Redirect to the login page
+      navigate('/home'); // Redirect to the login page
     } else {
       // Authentication failed, show an error message
       setError('Invalid credentials. Please try again.');

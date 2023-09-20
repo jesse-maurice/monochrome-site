@@ -13,7 +13,7 @@ function App() {
   
       <Routes>
         <Route path='/' element={<SignIn />} />
-        <Route path='/src/Components/Main.js' element={<Main/>} />
+        <Route path='/home' element={<Main/>} />
       </Routes>
     
   );

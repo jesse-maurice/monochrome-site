@@ -133,7 +133,7 @@ const ImageGrid = () => {
   return (
     <div className="grid-container lg:px-[120px] md:px-[25px] max-sm:px-[40px] max-md:px-[25px]">
       <div className="w-full flex flex-row content-center justify-between">
-        <h1 className="font-rale font-bold tracking-wider text-4xl py-[60px] uppercase max-sm:hidden md:hidden">
+        <h1 className="font-rale font-bold tracking-wider text-4xl py-[60px] uppercase max-sm:hidden">
           latest works
         </h1>
         <form className="py-[60px] w-full max-w-md">
