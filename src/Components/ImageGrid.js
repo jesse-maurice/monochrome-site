@@ -130,9 +130,9 @@ const ImageGrid = () => {
   };
 
   return (
-    <div className="grid-container px-[100px] max-sm:px-[40px]">
+    <div className="grid-container lg:px-[120px] md:px-[25px] max-sm:px-[40px] max-md:px-[25px]">
       <div className="w-full flex flex-row content-center justify-between">
-        <h1 className="font-rale font-bold tracking-wider text-4xl py-[60px] uppercase max-sm:hidden">
+        <h1 className="font-rale font-bold tracking-wider text-4xl py-[60px] uppercase max-sm:hidden md:hidden">
           latest works
         </h1>
         <form className="py-[60px] w-full max-w-md">
@@ -166,7 +166,7 @@ const ImageGrid = () => {
           <Droppable droppableId="image-grid" direction="horizontal">
             {(provided) => (
               <ul
-                className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-[30px] max-sm:gap-[25px]"
+                className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 lg:gap-[30px] md:gap-[20px] max-sm:gap-[25px]"
                 {...provided.droppableProps}
                 ref={provided.innerRef}
               >
