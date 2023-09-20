@@ -95,6 +95,7 @@ const initialImages = [
   },
 ];
 
+
 const ImageGrid = () => {
   const [loading, setLoading] = useState(true);
   const [searchValue, setSearchValue] = useState("");
@@ -123,7 +124,7 @@ const ImageGrid = () => {
       return; // No valid drop target
     }
 
-    const newImages = [...filteredImages]; // Use filteredImages instead of images
+    const newImages = [...filteredImages];
     const [removed] = newImages.splice(result.source.index, 1);
     newImages.splice(result.destination.index, 0, removed);
     setFilteredImages(newImages);
@@ -152,8 +153,7 @@ const ImageGrid = () => {
       </div>
 
       {loading ? (
-        // Loading skeleton
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-[30px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 lg:gap-[30px] md:gap-[20px] max-sm:gap-[25px]">
           {Array.from({ length: 16 }).map((_, index) => (
             <div key={index} className="animate-pulse">
               <div className="bg-gray-300 h-60 w-full rounded-lg"></div>
@@ -161,9 +161,8 @@ const ImageGrid = () => {
           ))}
         </div>
       ) : (
-        // Render filtered images
         <DragDropContext onDragEnd={onDragEnd}>
-          <Droppable droppableId="image-grid" direction="horizontal">
+          <Droppable droppableId="image-grid" direction="both">
             {(provided) => (
               <ul
                 className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 lg:gap-[30px] md:gap-[20px] max-sm:gap-[25px]"
@@ -185,7 +184,7 @@ const ImageGrid = () => {
                         <img
                           src={image.src}
                           alt={`street ${index + 1}`}
-                          className="w-auto h-auto"
+                          className="w-auto h-auto active:border-[5px] active:border-dashed active:border-[#ef5350]"
                         />
                       </li>
                     )}
@@ -199,5 +198,6 @@ const ImageGrid = () => {
     </div>
   );
 };
+
 
 export default ImageGrid;
