@@ -1,5 +1,3 @@
-import 'firebase/compat/auth';
-
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
@@ -8,18 +6,20 @@ import { getAuth } from 'firebase/auth';
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyC8QZTrAnOGxgZ5WkG7uNPbQ2afpuFpTvI",
-  authDomain: "monochrome-image-gallery.firebaseapp.com",
-  projectId: "monochrome-image-gallery",
-  storageBucket: "monochrome-image-gallery.appspot.com",
-  messagingSenderId: "1067636627093",
-  appId: "1:1067636627093:web:69d0113105af5e15aaed9c",
+  apiKey: "AIzaSyAwOkpLGnYI3keKebVTfTiiWflqggX3_1E",
+  authDomain: "monochrome-9c030.firebaseapp.com",
+  projectId: "monochrome-9c030",
+  storageBucket: "monochrome-9c030.appspot.com",
+  messagingSenderId: "632530882293",
+  appId: "1:632530882293:web:4c299e7e32b065c9b67fbc",
+  measurementId: "G-CP2ZXPE1BP",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-// Initialize Firebase Authentication and get a reference to the service
-export const auth = getAuth(app);
+export const auth = getAuth();
 
+export default app;

@@ -11,14 +11,15 @@ const Main = () => {
   return (
     <>
       <Navbar />
-      <div className="relative w-full h-screen flex flex-col content-center justify-center text-center bg-zinc-900/80">
+      <div className="relative flex flex-col content-center justify-center w-full h-screen text-center bg-zinc-900/80">
         <img
-          className="absolute w-full h-full object-cover mix-blend-overlay "
+          className="absolute object-cover w-full h-full mix-blend-overlay "
           src={loginImg}
           alt="/"
+          loading="lazy"
         />
 
-        <div className=" min-h-screen flex items-center absolute inset-0  justify-center">
+        <div className="absolute inset-0 flex items-center justify-center min-h-screen ">
           <div className=" text-center w-[800px]">
             <h1 className=" font-rale capitalize font-black max-sm:leading-[35px] text-[#ffffff] md:text-5xl lg:text-[45px] px-4 max-sm:text-[28px]  ">
               providing afrocentric stock images for your business and

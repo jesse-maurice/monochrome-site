@@ -132,7 +132,7 @@ const ImageGrid = () => {
 
   return (
     <div className="grid-container lg:px-[120px] md:px-[25px] max-sm:px-[40px] max-md:px-[25px]">
-      <div className="w-full flex flex-row content-center justify-between">
+      <div className="flex flex-row content-center justify-between w-full">
         <h1 className="font-rale font-bold tracking-wider text-4xl py-[60px] uppercase max-sm:hidden">
           latest works
         </h1>
@@ -156,7 +156,7 @@ const ImageGrid = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 lg:gap-[30px] md:gap-[20px] max-sm:gap-[25px]">
           {Array.from({ length: 16 }).map((_, index) => (
             <div key={index} className="animate-pulse">
-              <div className="bg-gray-300 h-60 w-full rounded-lg"></div>
+              <div className="w-full bg-gray-300 rounded-lg h-60"></div>
             </div>
           ))}
         </div>
@@ -184,7 +184,8 @@ const ImageGrid = () => {
                         <img
                           src={image.src}
                           alt={`street ${index + 1}`}
-                          className="w-auto h-auto active:border-[5px] active:border-dashed active:border-[#ef5350]"
+                          className="w-auto h-auto active:border-[5px] active:border-dashed rounded-xl active:border-[#ef5350]"
+                          loading="lazy"
                         />
                       </li>
                     )}
