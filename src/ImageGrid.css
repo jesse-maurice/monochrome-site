@@ -1,0 +1,11 @@
+/* ImageGrid.css */
+
+/* Normal state of the image */
+.img-hover-shadow {
+  transition: box-shadow 0.3s ease;
+}
+
+/* Hover state of the image */
+.img-hover-shadow:hover {
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6);
+}

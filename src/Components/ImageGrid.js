@@ -1,13 +1,9 @@
+import '../ImageGrid.css';
+
 import React, {
   useEffect,
   useState,
 } from 'react';
-
-import {
-  DragDropContext,
-  Draggable,
-  Droppable,
-} from 'react-beautiful-dnd';
 
 // Import your images
 import image1 from '../asssets/images/Image 1.png';
@@ -119,22 +115,13 @@ const ImageGrid = () => {
     setFilteredImages(filteredImages);
   }, [searchValue]);
 
-  const onDragEnd = (result) => {
-    if (!result.destination) {
-      return; // No valid drop target
-    }
-
-    const newImages = [...filteredImages];
-    const [removed] = newImages.splice(result.source.index, 1);
-    newImages.splice(result.destination.index, 0, removed);
-    setFilteredImages(newImages);
-  };
+  
 
   return (
-    <div className="grid-container lg:px-[120px] md:px-[25px] max-sm:px-[40px] max-md:px-[25px]">
+    <div className="grid-container px-4 lg:px-10 max-sm:px-4">
       <div className="flex flex-row content-center justify-between w-full">
-        <h1 className="font-rale font-bold tracking-wider text-4xl py-[60px] uppercase max-sm:hidden">
-          latest works
+        <h1 className="font-rale font-semibold text-2xl py-[60px] max-sm:hidden">
+          Free Stock Photos
         </h1>
         <form className="py-[60px] w-full max-w-md">
           <div className="relative flex items-center">
@@ -153,7 +140,7 @@ const ImageGrid = () => {
       </div>
 
       {loading ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 lg:gap-[30px] md:gap-[20px] max-sm:gap-[25px]">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 lg:gap-[30px] md:gap-[20px] max-sm:gap-[25px]">
           {Array.from({ length: 16 }).map((_, index) => (
             <div key={index} className="animate-pulse">
               <div className="w-full bg-gray-300 rounded-lg h-60"></div>
@@ -161,40 +148,19 @@ const ImageGrid = () => {
           ))}
         </div>
       ) : (
-        <DragDropContext onDragEnd={onDragEnd}>
-          <Droppable droppableId="image-grid" direction="both">
-            {(provided) => (
-              <ul
-                className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 lg:gap-[30px] md:gap-[20px] max-sm:gap-[25px]"
-                {...provided.droppableProps}
-                ref={provided.innerRef}
-              >
-                {filteredImages.map((image, index) => (
-                  <Draggable
-                    key={index}
-                    draggableId={index.toString()}
-                    index={index}
-                  >
-                    {(provided) => (
-                      <li
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                        ref={provided.innerRef}
-                      >
-                        <img
-                          src={image.src}
-                          alt={`street ${index + 1}`}
-                          className="w-auto h-auto active:border-[5px] active:border-dashed rounded-xl active:border-[#ef5350]"
-                          loading="lazy"
-                        />
-                      </li>
-                    )}
-                  </Draggable>
-                ))}
-              </ul>
-            )}
-          </Droppable>
-        </DragDropContext>
+        <ul className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 lg:gap-[20px] md:gap-[15px] max-sm:gap-[15px]">
+          {filteredImages.map((image, index) => (
+            <li key={index} className="relative cursor-pointer">
+              <img
+                src={image.src}
+                alt={`street${index + 1}`}
+                className="w-auto h-auto cursor-pointer"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-10 transition-opacity duration-300"></div>
+            </li>
+          ))}
+        </ul>
       )}
     </div>
   );

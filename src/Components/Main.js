@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { Link } from 'react-router-dom';
-
 import loginImg from '../asssets/images/IMG_4195.png';
 import ClosingSection from './ClosingSection';
 import ImageGrid from './ImageGrid';
@@ -10,8 +8,8 @@ import Navbar from './Navbar';
 const Main = () => {
   return (
     <>
-      <Navbar />
-      <div className="relative flex flex-col content-center justify-center w-full h-screen text-center bg-zinc-900/80">
+      <div className="relative flex flex-col w-full h-screen text-center bg-zinc-900/80">
+        <Navbar />
         <img
           className="absolute object-cover w-full h-full mix-blend-overlay "
           src={loginImg}
@@ -30,19 +28,17 @@ const Main = () => {
               elegance of monochromatic photography for your business and
               creative needs.
             </p>
-            <Link to={"/Login"}>
-              <button
-                className="bg-[#ef5350] hover:bg-transparent hover:border-2 hover:border-[#ef5350] rounded-3xl mt-10 font-tide cursor-pointer px-[70px] py-[12px] max-sm:mt-10 max-sm:px-[50px] max-sm:text-sm text-[#ffffff] transition duration-300 ease-in-out sm:text-lg md:text-xl lg:text-2xl xl:text-2xl"
-                type="submit"
-              >
-                Join Community
-              </button>
-            </Link>
+            <button
+              className="bg-[#ef5350] border-2 border-transparent hover:bg-transparent hover:border-[#ef5350] rounded-3xl mt-10 font-tide cursor-pointer px-[70px] py-[12px] max-sm:mt-10 max-sm:px-[50px] max-sm:text-sm text-[#ffffff] transition duration-300 ease-in-out sm:text-lg md:text-xl lg:text-2xl xl:text-2xl"
+              type="submit"
+            >
+              Join Community
+            </button>
           </div>
         </div>
       </div>
       <ImageGrid />
-      <ClosingSection/>
+      <ClosingSection />
     </>
   );
 }
