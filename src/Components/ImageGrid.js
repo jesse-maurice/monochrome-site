@@ -1,4 +1,4 @@
-import '../ImageGrid.css';
+import '../Components/ImageModal';
 
 import React, {
   useEffect,
@@ -22,6 +22,7 @@ import image6 from '../asssets/images/Image 6.png';
 import image7 from '../asssets/images/Image 7.png';
 import image8 from '../asssets/images/Image 8.png';
 import image9 from '../asssets/images/Image 9.png';
+import ImageModal from '../Components/ImageModal';
 
 // Initialize your images array
 const initialImages = [
@@ -96,6 +97,7 @@ const ImageGrid = () => {
   const [loading, setLoading] = useState(true);
   const [searchValue, setSearchValue] = useState("");
   const [filteredImages, setFilteredImages] = useState([]);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
     // Simulate loading for 2 seconds
@@ -115,7 +117,13 @@ const ImageGrid = () => {
     setFilteredImages(filteredImages);
   }, [searchValue]);
 
-  
+   const openModal = (image) => {
+     setSelectedImage(image);
+   };
+
+   const closeModal = () => {
+     setSelectedImage(null);
+   };
 
   return (
     <div className="grid-container px-4 lg:px-10 max-sm:px-4">
@@ -150,10 +158,10 @@ const ImageGrid = () => {
       ) : (
         <ul className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 lg:gap-[20px] md:gap-[15px] max-sm:gap-[15px]">
           {filteredImages.map((image, index) => (
-            <li key={index} className="relative cursor-pointer">
+            <li key={index} className="relative cursor-pointer" onClick={() => openModal(image)}>
               <img
                 src={image.src}
-                alt={`street${index + 1}`}
+                alt={`image${index}`}
                 className="w-auto h-auto cursor-pointer"
                 loading="lazy"
               />
@@ -162,6 +170,7 @@ const ImageGrid = () => {
           ))}
         </ul>
       )}
+      <ImageModal image={selectedImage} onClose={closeModal} />
     </div>
   );
 };
