@@ -7,7 +7,6 @@ import React, {
 
 import ImageModal from '../Components/ImageModal';
 import imageList from '../server/images.json';
-import PhotoDetailsModal from './PhotoDetailsModal';
 
 // Function to import all images dynamically
 const importAll = (r) => {
@@ -152,11 +151,6 @@ const ImageGrid = () => {
         </ul>
       )}
       <ImageModal image={selectedImage} onClose={closeModal} />
-      {/* <PhotoDetailsModal image={selectedImageDetails}  onClose={closeImageDetailsModal} /> */}
-      {/* {selectedImage && (
-        <PhotoDetailsModal image={selectedImage} onClose={closeModal} />
-      )} */}
-      <PhotoDetailsModal image={selectedImageDetails} onClose={closeImageDetailsModal} />
     </div>
   );
 };

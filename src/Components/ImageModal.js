@@ -10,8 +10,7 @@ import PhotoDetailsModal from '../Components/PhotoDetailsModal';
 const ImageModal = ({ image, onClose }) => {
   const [isCollected, setIsCollected] = useState(false);
   const [likes, setLikes] = useState(0);
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [selectedImageDetails, setSelectedImageDetails] = useState(null);
+  const [showDetailsModal, setShowDetailsModal] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
   if (!image) return null;
 
@@ -24,16 +23,17 @@ const ImageModal = ({ image, onClose }) => {
     document.body.removeChild(link);
   };
 
+
+   const openImageDetailsModal = () => {
+    //  setSelectedImageDetails(image); // Set the image for details modal
+     setShowDetailsModal(true); // Open the PhotoDetailsModal
+   };
+
+   const closeImageDetailsModal = () => {
+     setShowDetailsModal(false);
+   };
+
   
-
-  const openImageDetailsModal = (image) => {
-    setSelectedImage(image);
-  };
-
-  const closeImageDetailsModal = () => {
-    setSelectedImage(null);
-  };
-
 
   // Handle collection toggle
   const handleCollection = () => {
@@ -140,11 +140,9 @@ const ImageModal = ({ image, onClose }) => {
           </div>
         </div>
       </div>
-      {selectedImage && (
-        <PhotoDetailsModal
-          image={selectedImage}
-          onClose={closeImageDetailsModal}
-        />
+
+      {showDetailsModal && (
+        <PhotoDetailsModal image={image} onClose={closeImageDetailsModal} />
       )}
     </div>
   );

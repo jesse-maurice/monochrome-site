@@ -1,18 +1,8 @@
 import React from 'react';
 
 const PhotoDetailsModal = ({ image, onClose }) => {
+
   if (!image) return null;
-  
-  
-  // const [isLoading, setIsLoading] = useState(true);
-
-  // useEffect(() => {
-  //   // Simulate loading time
-  //   setTimeout(() => {
-  //     setIsLoading(false);
-  //   }, 20000);
-  // }, []);
-
 
 
   return (
