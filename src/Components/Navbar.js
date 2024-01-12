@@ -21,14 +21,10 @@ const Navbar = () => {
 
   return (
     <>
-      <div className=" w-full flex flex-row justify-between content-center px-10 max-sm:px-6 mt-3 z-10">
-        <div className="flex flex-row items-center content-center mt-2 justify-center ">
-          <span className=" rounded-se-2xl px-[5px] h-9 mr-3 text-center items-center font-tide text-2xl max-sm:text-[35px] bg-black text-[#ffffff]">
+      <div className=" w-full flex flex-row justify-between items-center content-center px-10 max-sm:px-6 mt-3 z-10">
+        <div className=" ">
+          <h1 className=" font-tide text-[50px] max-sm:text-[40px] text-[#ffffff]">
             m
-          </span>
-          <h1 className="font-bold text-xl font-tide max-sm:hidden tracking-wider ">
-            {" "}
-            MONOCHROME
           </h1>
         </div>
         <div className=" font-rale pt-[7px] text-lg font-semibold">

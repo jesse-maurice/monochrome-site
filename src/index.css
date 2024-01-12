@@ -5,7 +5,7 @@
 @font-face{
   font-family: "High Tide";
   src: local('High Tide'),
-  url("/src/asssets/fonts/HighTide.otf") format('opentype');
+  url("/src/assets/fonts/HighTide.otf") format('opentype');
   font-weight: normal;
   font-style: normal;
 }

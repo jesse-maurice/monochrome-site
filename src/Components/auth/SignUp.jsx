@@ -10,18 +10,20 @@ import {
   useNavigate,
 } from 'react-router-dom';
 
-import loginImg from '../../asssets/images/IMG_4195.png';
+import loginImg from '../../assets/images/IMG_4195.png';
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [fullName, setFullName] = useState("");
+  //  const [error, setError] = useState("");
   const navigate = useNavigate();
   const auth = getAuth();
 
 
   const handleSignUp = async (e) => {
     e.preventDefault();
+
     try {
       // Await the response from signInWithEmailAndPassword
       const userCredential = await signInWithEmailAndPassword(
@@ -52,8 +54,9 @@ const SignUp = () => {
 
         <div className="flex items-center justify-center h-full">
           <form
-            className="max-w-[400px] w-full mx-auto bg-white p-8"
+            className="...group max-w-[400px] w-full mx-auto bg-white p-8"
             onSubmit={handleSignUp}
+            noValidate
           >
             <h2 className="py-4 text-4xl font-bold text-center font-tide">
               MONOCHROME.
@@ -63,30 +66,50 @@ const SignUp = () => {
               <input
                 className="relative p-2 bg-gray-100 border"
                 type="text"
+                name="fullName"
+                placeholder="full name"
+                autoComplete="off"
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
               />
             </div>
             <div className="flex flex-col mt-5 mb-4">
-              <label>Email</label>
-              <input
-                className="relative p-2 bg-gray-100 border"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
+              <label htmlFor="email" className="flex flex-col">
+                <span>Email</span>
+                <input
+                  className="relative p-2 bg-gray-100 border ... invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500"
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="example@gmail.com"
+                  autoComplete="off"
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </label>
             </div>
-            <div className="flex flex-col ">
-              <label>Password</label>
-              <input
-                className="relative p-2 bg-gray-100 border"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
+            <div className="flex flex-col mb-4 ">
+              <label className="flex flex-col" htmlFor="password">
+                <span>Password</span>
+                <input
+                  className="relative p-2 bg-gray-100 border ... invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500"
+                  type="password"
+                  name="password"
+                  id="password"
+                  placeholder="*******"
+                  required
+                  pattern=".{7,}"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </label>
+
               <button
+                onClick={handleSignUp}
                 type="submit"
-                className="w-full py-3 mt-8 bg-[#ef5350] hover:bg-transparent hover:border-[3px] hover:border-[#ef5350] hover:text-[#ef5350] relative text-white"
+                className="w-full py-3 mt-8 bg-[#ef5350] hover:bg-transparent hover:border-[3px] hover:border-[#ef5350] hover:text-[#ef5350] relative text-white
+                ...group-invalid:pointer-events-none group-invalid:opacity-30"
               >
                 Sign Up
               </button>

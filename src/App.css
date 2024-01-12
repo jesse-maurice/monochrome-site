@@ -1,0 +1,9 @@
+.scrollable-hidden {
+  overflow-y: auto;
+  scrollbar-width: none; /* for Firefox */
+  -ms-overflow-style: none; /* for Internet Explorer and Edge */
+}
+
+.scrollable-hidden::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
+}

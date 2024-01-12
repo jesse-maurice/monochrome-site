@@ -5,125 +5,81 @@ import React, {
   useState,
 } from 'react';
 
-// Import your images
-import image1 from '../asssets/images/Image 1.png';
-import image10 from '../asssets/images/Image 10.png';
-import image11 from '../asssets/images/Image 11.png';
-import image12 from '../asssets/images/Image 12.png';
-import image13 from '../asssets/images/Image 13.png';
-import image14 from '../asssets/images/Image 14.png';
-import image15 from '../asssets/images/Image 15.png';
-import image16 from '../asssets/images/Image 16.png';
-import image2 from '../asssets/images/Image 2.png';
-import image3 from '../asssets/images/Image 3.png';
-import image4 from '../asssets/images/Image 4.png';
-import image5 from '../asssets/images/Image 5.png';
-import image6 from '../asssets/images/Image 6.png';
-import image7 from '../asssets/images/Image 7.png';
-import image8 from '../asssets/images/Image 8.png';
-import image9 from '../asssets/images/Image 9.png';
 import ImageModal from '../Components/ImageModal';
+import imageList from '../server/images.json';
+import PhotoDetailsModal from './PhotoDetailsModal';
 
-// Initialize your images array
-const initialImages = [
-  {
-    src: image1,
-    tag: ["nature", "landscape", "macro"],
-  },
-  {
-    src: image2,
-    tag: ["nature", "landscape", "macro"],
-  },
-  {
-    src: image3,
-    tag: ["nature", "landscape", "macro"],
-  },
-  {
-    src: image4,
-    tag: ["street", "work", "portrait"],
-  },
-  {
-    src: image5,
-    tag: ["street", "portrait", "work"],
-  },
-  {
-    src: image6,
-    tag: ["street", "building", "skyscraper"],
-  },
-  {
-    src: image7,
-    tag: ["tower", "sky", "clouds"],
-  },
-  {
-    src: image8,
-    tag: ["power", "sky", "tower"],
-  },
-  {
-    src: image9,
-    tag: ["street", "portrait", "engineer"],
-  },
-  {
-    src: image10,
-    tag: ["nature", "sunset", "wildlife"],
-  },
-  {
-    src: image11,
-    tag: ["street", "skyscraper", "building"],
-  },
-  {
-    src: image12,
-    tag: ["sky", "portrait", "street"],
-  },
-  {
-    src: image13,
-    tag: ["clouds", "sky", "lamp"],
-  },
-  {
-    src: image14,
-    tag: ["nature", "clouds", "street"],
-  },
-  {
-    src: image15,
-    tag: ["street", "skyscraper", "building"],
-  },
-  {
-    src: image16,
-    tag: ["street", "skyscraper", "building"],
-  },
-];
+// Function to import all images dynamically
+const importAll = (r) => {
+  let images = {};
+  r.keys().forEach((item) => { images[item.replace('./', '')] = r(item); });
+  return images;
+}
+
+// Import images from the directory
+const images = importAll(require.context('../assets/images', false, /\.(png|jpe?g|svg)$/));
+;
 
 
 const ImageGrid = () => {
   const [loading, setLoading] = useState(true);
   const [searchValue, setSearchValue] = useState("");
-  const [filteredImages, setFilteredImages] = useState([]);
+  const [filteredImages, setFilteredImages] = useState(imageList);
   const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImageDetails, setSelectedImageDetails] = useState();
+   const [isCollected, setIsCollected] = useState(false);
+  //  const [likes, setLikes] = useState(0);
+   const [isLiked, setIsLiked] = useState(false);
 
   useEffect(() => {
     // Simulate loading for 2 seconds
-    setTimeout(() => {
+    const loadingTimeout = setTimeout(() => {
       setLoading(false);
     }, 2000);
+
+    // Cleanup function to clear the timeout when component unmounts
+    return () => clearTimeout(loadingTimeout);
   }, []);
 
-  useEffect(() => {
-    // Filter images based on searchValue
-    const filteredImages = initialImages.filter((image) => {
-      return image.tag.some((tag) =>
-        tag.toLowerCase().includes(searchValue.toLowerCase())
-      );
-    });
+    useEffect(() => {
+      // Filter images based on searchValue
+      const filtered = imageList
+        .filter((image) =>
+          image.tag.some((tag) =>
+            tag.toLowerCase().includes(searchValue.toLowerCase())
+          )
+        )
+        .map((image) => ({
+          ...image,
+          src: images[image.src], // Update the src to the imported image
+        }));
+      setFilteredImages(filtered);
+    }, [searchValue]);
 
-    setFilteredImages(filteredImages);
-  }, [searchValue]);
 
    const openModal = (image) => {
      setSelectedImage(image);
-   };
+  };
+  
+  const closeImageDetailsModal = () => {
+    setSelectedImageDetails(null);
+  };
 
    const closeModal = () => {
      setSelectedImage(null);
-   };
+  };
+  
+  const handleCollection = () => {
+    setIsCollected(!isCollected);
+    // Additional logic for when an item is collected or uncollected
+  };
+
+  // Handle likes increment
+  const handleLikes = () => {
+    // setLikes((prevLikes) => prevLikes + 1);
+    setIsLiked(!isLiked); // Correctly increment likes
+    // Additional logic for when an item is liked
+  };
 
   return (
     <div className="grid-container px-4 lg:px-10 max-sm:px-4">
@@ -158,19 +114,49 @@ const ImageGrid = () => {
       ) : (
         <ul className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 lg:gap-[20px] md:gap-[15px] max-sm:gap-[15px]">
           {filteredImages.map((image, index) => (
-            <li key={index} className="relative cursor-pointer" onClick={() => openModal(image)}>
+            <li
+              key={index}
+              className="relative cursor-pointer"
+              onClick={() => openModal(image)}
+            >
               <img
                 src={image.src}
-                alt={`image${index}`}
+                alt={`frame${index}`}
                 className="w-auto h-auto cursor-pointer"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-10 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-10 transition-opacity duration-300">
+                <div className="flex absolute top-5 right-5 items-center justify-center gap-2">
+                  {/* <button
+                    onClick={handleCollection}
+                    className="text-black py-2 px-4 bg-white rounded-xl"
+                  >
+                    <i className="fa-regular fa-bookmark text-xl"></i>
+                  </button> */}
+                  {/* <button
+                    onClick={handleLikes}
+                    className="text-black py-2 px-3 text-xl bg-white rounded-xl"
+                  >
+                    <i
+                      className={
+                        isLiked
+                          ? "fa-solid fa-heart text-red-500"
+                          : "fa-regular fa-heart"
+                      }
+                    ></i>
+                  </button> */}
+                </div>
+              </div>
             </li>
           ))}
         </ul>
       )}
       <ImageModal image={selectedImage} onClose={closeModal} />
+      {/* <PhotoDetailsModal image={selectedImageDetails}  onClose={closeImageDetailsModal} /> */}
+      {/* {selectedImage && (
+        <PhotoDetailsModal image={selectedImage} onClose={closeModal} />
+      )} */}
+      <PhotoDetailsModal image={selectedImageDetails} onClose={closeImageDetailsModal} />
     </div>
   );
 };

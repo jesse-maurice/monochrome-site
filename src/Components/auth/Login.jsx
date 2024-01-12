@@ -7,7 +7,7 @@ import {
 } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 
-import loginImg from '../../asssets/images/IMG_4195.png';
+import loginImg from '../../assets/images/IMG_4195.png';
 
 const Login = () => {
   const [email, setEmail] = useState("");
