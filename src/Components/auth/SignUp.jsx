@@ -10,7 +10,7 @@ import {
   useNavigate,
 } from 'react-router-dom';
 
-import loginImg from '../../assets/images/IMG_4195.png';
+import loginImg from '../../assets/images/IMG_4195.webp';
 
 const SignUp = () => {
   const [email, setEmail] = useState("");

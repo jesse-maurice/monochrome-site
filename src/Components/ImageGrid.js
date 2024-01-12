@@ -5,6 +5,8 @@ import React, {
   useState,
 } from 'react';
 
+import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
+
 import ImageModal from '../Components/ImageModal';
 import imageList from '../server/images.json';
 
@@ -16,7 +18,7 @@ const importAll = (r) => {
 }
 
 // Import images from the directory
-const images = importAll(require.context('../assets/images', false, /\.(png|jpe?g|svg)$/));
+const images = importAll(require.context('../assets/images', false, /\.(webp|jpe?g|svg)$/));
 ;
 
 
@@ -29,6 +31,14 @@ const ImageGrid = () => {
    const [isCollected, setIsCollected] = useState(false);
   //  const [likes, setLikes] = useState(0);
    const [isLiked, setIsLiked] = useState(false);
+
+  const shuffleArray = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  };
 
   useEffect(() => {
     // Simulate loading for 2 seconds
@@ -52,7 +62,7 @@ const ImageGrid = () => {
           ...image,
           src: images[image.src], // Update the src to the imported image
         }));
-      setFilteredImages(filtered);
+      setFilteredImages(shuffleArray(filtered));
     }, [searchValue]);
 
 
@@ -111,44 +121,25 @@ const ImageGrid = () => {
           ))}
         </div>
       ) : (
-        <ul className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 lg:gap-[20px] md:gap-[15px] max-sm:gap-[15px]">
-          {filteredImages.map((image, index) => (
-            <li
-              key={index}
-              className="relative cursor-pointer"
-              onClick={() => openModal(image)}
-            >
-              <img
-                src={image.src}
-                alt={`frame${index}`}
-                className="w-auto h-auto cursor-pointer"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-10 transition-opacity duration-300">
-                <div className="flex absolute top-5 right-5 items-center justify-center gap-2">
-                  {/* <button
-                    onClick={handleCollection}
-                    className="text-black py-2 px-4 bg-white rounded-xl"
-                  >
-                    <i className="fa-regular fa-bookmark text-xl"></i>
-                  </button> */}
-                  {/* <button
-                    onClick={handleLikes}
-                    className="text-black py-2 px-3 text-xl bg-white rounded-xl"
-                  >
-                    <i
-                      className={
-                        isLiked
-                          ? "fa-solid fa-heart text-red-500"
-                          : "fa-regular fa-heart"
-                      }
-                    ></i>
-                  </button> */}
-                </div>
-              </div>
-            </li>
-          ))}
-        </ul>
+        <ResponsiveMasonry className="">
+          <Masonry>
+            {filteredImages.map((image, index) => (
+              <li
+                key={index}
+                className="relative cursor-pointer list-none m-2 "
+                onClick={() => openModal(image)}
+              >
+                <img
+                  src={image.src}
+                  alt={`frame${index}`}
+                  className="w-auto h-auto cursor-pointer"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-10 transition-opacity duration-300"></div>
+              </li>
+            ))}
+          </Masonry>
+        </ResponsiveMasonry>
       )}
       <ImageModal image={selectedImage} onClose={closeModal} />
     </div>

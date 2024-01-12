@@ -1,6 +1,6 @@
 import React from 'react';
 
-import loginImg from '../assets/images/IMG_4195.png';
+import loginImg from '../assets/images/IMG_4195.webp';
 import ClosingSection from './ClosingSection';
 import ImageGrid from './ImageGrid';
 import Navbar from './Navbar';

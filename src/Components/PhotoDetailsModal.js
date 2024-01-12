@@ -11,7 +11,7 @@ const PhotoDetailsModal = ({ image, onClose }) => {
         <div className="w-full  py-7 px-12 bg-black rounded-t-xl">
           
           <div className="photo-details-container flex content-center items-center gap-10">
-            <div className="w-[110px] h-[150px] rounded-xl">
+            <div className="max-w-[110px] max-h-[150px] rounded-xl">
               <img
                 className="w-auto h-auto rounded-xl"
                 src={image.src}
@@ -31,19 +31,18 @@ const PhotoDetailsModal = ({ image, onClose }) => {
             <div className="flex flex-col gap-1">
               <h3 className=" text-sm font-medium text-[#bfbfbf]">Views</h3>
               <span className=" text-[21px] font-medium text-[#ffffff] ">
-                211.8K
+                
               </span>
             </div>
             <div className="flex flex-col gap-1">
               <h3 className="text-sm font-medium text-[#bfbfbf]">Likes</h3>
               <span className="text-[21px] font-medium text-[#ffffff]">
-                131
+                
               </span>
             </div>
             <div className="flex flex-col gap-1">
               <h3 className="text-sm font-medium text-[#bfbfbf]">Downloads</h3>
               <span className="text-[21px] font-medium text-[#ffffff]">
-                940
               </span>
             </div>
           </div>
