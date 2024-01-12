@@ -7,3 +7,14 @@
 .scrollable-hidden::-webkit-scrollbar {
   display: none; /* for Chrome, Safari, and Opera */
 }
+
+.truncate {
+      display: -webkit-box;
+      display: block;
+      max-width: 100%;
+      margin: 0 auto;
+      -webkit-line-clamp: 2; /* Number of lines to show */
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+  }

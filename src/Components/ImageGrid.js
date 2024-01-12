@@ -1,5 +1,4 @@
 import '../Components/ImageModal';
-import '../masonry.css';
 
 import React, {
   useEffect,
@@ -122,8 +121,8 @@ const ImageGrid = () => {
           ))}
         </div>
       ) : (
-        <ResponsiveMasonry className="">
-          <Masonry columnsCount={3} gutter={20}>
+        <ResponsiveMasonry>
+          <Masonry columnsCount={3} gutter={15}>
             {filteredImages.map((image, index) => (
               <li
                 key={index}
