@@ -1,4 +1,5 @@
 import '../Components/ImageModal';
+import '../masonry.css';
 
 import React, {
   useEffect,
@@ -122,11 +123,11 @@ const ImageGrid = () => {
         </div>
       ) : (
         <ResponsiveMasonry className="">
-          <Masonry>
+          <Masonry columnsCount={3} gutter={20}>
             {filteredImages.map((image, index) => (
               <li
                 key={index}
-                className="relative cursor-pointer list-none m-2 "
+                className="relative cursor-pointer list-none "
                 onClick={() => openModal(image)}
               >
                 <img
