@@ -21,7 +21,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className=" w-full flex flex-row justify-between items-center content-center px-10 max-sm:px-6 mt-3 z-10">
+      <div className=" w-full border-box flex flex-row justify-between items-center content-center px-44 max-sm:px-6 md:px-10 lg:px-10 xl:px-10 2xl:px-44 z-10">
         <div className=" ">
           <h1 className=" font-tide text-[50px] max-sm:text-[40px] text-[#ffffff]">
             m

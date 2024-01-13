@@ -9,6 +9,7 @@ import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 
 import ImageModal from '../Components/ImageModal';
 import imageList from '../server/images.json';
+import BookmarkModal from './BookmarkModal';
 
 // Function to import all images dynamically
 const importAll = (r) => {
@@ -27,10 +28,16 @@ const ImageGrid = () => {
   const [searchValue, setSearchValue] = useState("");
   const [filteredImages, setFilteredImages] = useState(imageList);
   const [selectedImage, setSelectedImage] = useState(null);
-  const [selectedImageDetails, setSelectedImageDetails] = useState();
-   const [isCollected, setIsCollected] = useState(false);
-  //  const [likes, setLikes] = useState(0);
-   const [isLiked, setIsLiked] = useState(false);
+  const [showBookmarkModal, setShowBookmarkModal] = useState(false);
+  const [likes, setLikes] = useState({});
+
+  // Function to toggle bookmark modal
+  const toggleBookmarkModal = (e) => {
+    e.preventDefault(); // Prevent any default action
+    e.stopPropagation(); // Stop the event from bubbling up
+    setShowBookmarkModal(!showBookmarkModal);
+  };
+
 
   const shuffleArray = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
@@ -50,53 +57,51 @@ const ImageGrid = () => {
     return () => clearTimeout(loadingTimeout);
   }, []);
 
-    useEffect(() => {
-      // Filter images based on searchValue
-      const filtered = imageList
-        .filter((image) =>
-          image.tag.some((tag) =>
-            tag.toLowerCase().includes(searchValue.toLowerCase())
-          )
+  useEffect(() => {
+    // Filter images based on searchValue
+    const filtered = imageList
+      .filter((image) =>
+        image.tag.some((tag) =>
+          tag.toLowerCase().includes(searchValue.toLowerCase())
         )
-        .map((image) => ({
-          ...image,
-          src: images[image.src], // Update the src to the imported image
-        }));
-      setFilteredImages(shuffleArray(filtered));
-    }, [searchValue]);
+      )
+      .map((image) => ({
+        ...image,
+        src: images[image.src], // Update the src to the imported image
+      }));
+    setFilteredImages(shuffleArray(filtered));
+  }, [searchValue]);
 
-
-   const openModal = (image) => {
-     setSelectedImage(image);
-  };
-  
-  const closeImageDetailsModal = () => {
-    setSelectedImageDetails(null);
+  const openModal = (image) => {
+    setSelectedImage(image);
   };
 
-   const closeModal = () => {
-     setSelectedImage(null);
-  };
-  
-  const handleCollection = () => {
-    setIsCollected(!isCollected);
-    // Additional logic for when an item is collected or uncollected
+  const closeModal = () => {
+    setSelectedImage(null);
   };
 
-  // Handle likes increment
-  const handleLikes = () => {
-    // setLikes((prevLikes) => prevLikes + 1);
-    setIsLiked(!isLiked); // Correctly increment likes
-    // Additional logic for when an item is liked
+  const toggleLike = (index) => {
+    setLikes((prevLikes) => {
+      // Copy the current likes state
+      const newLikes = { ...prevLikes };
+
+      // Toggle the like status for the specific image
+      newLikes[index] = !newLikes[index];
+
+      return newLikes;
+    });
   };
+
+
+  // Function to toggle bookmark modal
 
   return (
-    <div className="grid-container px-4 lg:px-10 max-sm:px-4">
+    <div className="grid-container px-4 lg:px-10 max-sm:px-4 md:px-10 xl:px-10 2xl:px-44">
       <div className="flex flex-row content-center justify-between w-full">
-        <h1 className="font-rale font-semibold text-2xl py-[60px] max-sm:hidden">
+        <h1 className="font-rale font-semibold text-2xl py-[60px] md:py-[40px] max-sm:hidden">
           Free Stock Photos
         </h1>
-        <form className="py-[60px] w-full max-w-md">
+        <form className="py-[60px] max-sm:py-[40px] md:py-[40px] w-full max-w-md">
           <div className="relative flex items-center">
             <i className="fa-solid absolute w-[13px] h-[13px] pointer-events-none ml-3 fa-magnifying-glass fa-beat-fade"></i>
             <input
@@ -135,13 +140,48 @@ const ImageGrid = () => {
                   className="w-auto h-auto cursor-pointer"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-10 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-10 transition-opacity duration-300">
+                  <div className="flex items-center gap-2 h-full w-full opacity-0 hover:opacity-100 transition-opacity duration-300">
+                    <button
+                      onClick={toggleBookmarkModal}
+                      className="px-4 py-3 absolute top-3 right-[78px] text-[#000000] bg-white font-semibold flex items-center justify-center gap-2 bg-transparent rounded-lg border-[1px] hover:border-[#bfbdbd]"
+                    >
+                      <i className="fa-regular fa-bookmark"></i>
+                    </button>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleLike(index);
+                      }}
+                      className="px-4 py-3 text-[#000000] absolute top-3 right-5 bg-white font-semibold flex items-center justify-center gap-2 bg-transparent rounded-lg border-[1px] hover:border-[#bfbdbd]"
+                    >
+                      <i
+                        className={
+                          likes[index]
+                            ? "fa-solid fa-heart text-red-500 heart-pulse"
+                            : "fa-regular fa-heart"
+                        }
+                      ></i>
+                    </button>
+
+                    <a
+                      href={image.src}
+                      download
+                      onClick={(e) => e.stopPropagation()}
+                      className="flex items-center font-medium absolute bottom-5 right-5 max-sm:bg-transparent md:bg-[#ffffff] max-sm:text-[#ffffff] md:text-black md:rounded-lg md:py-3 md:px-3 md:hover:bg-[#ffffff] lg:bg-[#ef5350] lg:hover:bg-[#c85655] max-sm:hover:bg-[#ffffff]  max-sm:hover:text-black max-sm:hover:rounded-lg max-sm:hover:px-3 max-sm:hover:py-3 lg:py-2 lg:px-5 lg:rounded-full content-center justify-center gap-2 lg:text-[#ffffff]"
+                    >
+                      <i class="fa-solid fa-download"></i>
+                      <span className="hidden lg:inline">Download</span>
+                    </a>
+                  </div>
+                </div>
               </li>
             ))}
           </Masonry>
         </ResponsiveMasonry>
       )}
       <ImageModal image={selectedImage} onClose={closeModal} />
+      {showBookmarkModal && <BookmarkModal />}
     </div>
   );
 };

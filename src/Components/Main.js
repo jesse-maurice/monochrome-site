@@ -8,7 +8,7 @@ import Navbar from './Navbar';
 const Main = () => {
   return (
     <>
-      <div className="relative flex flex-col w-full h-screen text-center bg-zinc-900/80">
+      <div className="relative flex flex-col w-full min-h-[500px] text-center bg-zinc-900/80">
         <Navbar />
         <img
           className="absolute object-cover w-full h-full mix-blend-overlay "
@@ -17,19 +17,19 @@ const Main = () => {
           loading="lazy"
         />
 
-        <div className="absolute inset-0 flex items-center justify-center min-h-screen ">
-          <div className=" text-center w-[800px]">
-            <h1 className=" font-rale capitalize font-black max-sm:leading-[35px] text-[#ffffff] md:text-5xl lg:text-[45px] px-4 max-sm:text-[28px]  ">
+        <div className="absolute inset-0 flex items-center justify-center  ">
+          <div className="flex flex-col text-center max-w-[630px] max-sm:px-6 border-box pt-12">
+            <h1 className=" font-rale capitalize font-semibold max-sm:leading-[35px] text-[#ffffff] md:text-[33px] md:leading-[40px] lg:text-[33px] lg:leading-[40px] -tracking-tight fill-[#ffffff] px-4 max-sm:text-[28px]  ">
               providing afrocentric stock images for your business and
               creativity.
             </h1>
-            <p className=" capitalize mt-2 text-[20px] md:text-[20px] max-sm:text-[13px] lg:text-[20px] text-[#9e9c9c]">
+            <p className=" capitalize lg:mt-2 max-sm:mt-1 md:mt-1 lg:text-[16px] md:text-[15px] max-sm:text-[13px] text-[#9e9c9c]">
               we are a stock image company that focuses on providing timeless
               elegance of monochromatic photography for your business and
               creative needs.
             </p>
             <button
-              className="bg-[#ef5350] border-2 border-transparent hover:bg-transparent hover:border-[#ef5350] rounded-3xl mt-10 font-tide cursor-pointer px-[70px] py-[12px] max-sm:mt-10 max-sm:px-[50px] max-sm:text-sm text-[#ffffff] transition duration-300 ease-in-out sm:text-lg md:text-xl lg:text-2xl xl:text-2xl"
+              className="bg-[#ef5350] border-2 border-transparent hover:bg-transparent hover:border-[#ef5350] rounded-3xl mt-5 font-tide cursor-pointer w-56  mx-auto py-[10px] max-sm:mt-5 max-sm:px-[50px] max-sm:text-[13px] text-[#ffffff] transition duration-300 ease-in-out md:text-xl lg:text-sm xl:text-sm"
               type="submit"
             >
               Join Community
