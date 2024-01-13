@@ -45,7 +45,7 @@ const Login = () => {
           alt="/"
         />
 
-        <div className="flex items-center justify-center h-full">
+        <div className="flex absolute inset-0 items-center justify-center h-full">
           <form
             className="max-w-[400px] w-full mx-auto bg-white p-8"
             onSubmit={handleSignUp}
@@ -56,7 +56,7 @@ const Login = () => {
             <div className="flex flex-col mt-5 mb-4">
               <label>Email</label>
               <input
-                className="relative p-2 bg-gray-100 border"
+                className="relative p-2 bg-gray-100 border font-light focus:outline-black text-[#7f7f7f] solid"
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -65,7 +65,7 @@ const Login = () => {
             <div className="flex flex-col ">
               <label>Password</label>
               <input
-                className="relative p-2 bg-gray-100 border"
+                className="relative p-2 bg-gray-100 border font-light focus:outline-black text-[#7f7f7f] solid"
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
