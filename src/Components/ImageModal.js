@@ -53,7 +53,7 @@ const ImageModal = ({ image, onClose }) => {
       <div className="w-full h-full px-4 pt-4 pb-4 scrollable-hidden max-sm:h-auto max-sm:px-0 md:px-24 lg:px-40 md:pt-10 md:pb-10">
         <button
           onClick={onClose}
-          className="absolute flex items-center justify-center text-white border-none rounded-full outline-none top-16 lg:left-24 md:left-12 max-sm:top-2 max-sm:left-5"
+          className="absolute flex items-center justify-center text-white border-none rounded-full outline-none top-16 lg:left-24 md:left-12 max-sm:top-4 max-sm:left-5"
         >
           <i className="text-3xl fa-solid fa-xmark"></i>
         </button>
