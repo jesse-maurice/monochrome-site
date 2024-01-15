@@ -17,7 +17,7 @@ const Main = () => {
           loading="lazy"
         />
 
-        <div className="absolute inset-0 flex items-center justify-center  ">
+        <div className="absolute inset-0 flex items-center justify-center ">
           <div className="flex flex-col text-center max-w-[630px] max-sm:px-6 border-box pt-12">
             <h1 className=" font-rale capitalize font-semibold max-sm:leading-[35px] text-[#ffffff] md:text-[33px] md:leading-[40px] lg:text-[33px] lg:leading-[40px] -tracking-tight fill-[#ffffff] px-4 max-sm:text-[28px]  ">
               providing afrocentric stock images for your business and

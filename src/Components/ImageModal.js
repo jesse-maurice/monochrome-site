@@ -49,27 +49,27 @@ const ImageModal = ({ image, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-black bg-opacity-90 flex justify-center items-center overflow-hidden">
-      <div className="scrollable-hidden w-full h-full max-sm:h-auto px-4 max-sm:px-0 md:px-24 lg:px-40 pt-4 pb-4 md:pt-10 md:pb-10">
+    <div className="fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-black bg-opacity-90">
+      <div className="w-full h-full px-4 pt-4 pb-4 scrollable-hidden max-sm:h-auto max-sm:px-0 md:px-24 lg:px-40 md:pt-10 md:pb-10">
         <button
           onClick={onClose}
-          className="absolute top-16 lg:left-24 md:left-12 max-sm:top-2 max-sm:left-5 text-white flex items-center justify-center border-none rounded-full outline-none"
+          className="absolute flex items-center justify-center text-white border-none rounded-full outline-none top-16 lg:left-24 md:left-12 max-sm:top-2 max-sm:left-5"
         >
-          <i className="fa-solid fa-xmark text-3xl"></i>
+          <i className="text-3xl fa-solid fa-xmark"></i>
         </button>
-        <div className="modal-container bg-white rounded-2xl max-sm:rounded-none shadow py-5 max-sm:py-3 px-4 max-sm:px-0 lg:px-10 w-full m-auto">
-          <div className="md:w-full py-3 max-sm:py-0 flex flex-col md:flex-row max-sm:px-4 md:px-4 justify-between items-center">
-            <div className="md:w-1/2 items-center hidden lg:inline-flex mb-4 md:mb-0 gap-3">
-              <div className=" w-12 h-12 rounded-full ">
+        <div className="w-full px-4 py-5 m-auto bg-white shadow modal-container rounded-2xl max-sm:rounded-none max-sm:py-3 max-sm:px-0 lg:px-10">
+          <div className="flex flex-col items-center justify-between py-3 md:w-full max-sm:py-0 md:flex-row max-sm:px-4 md:px-4">
+            <div className="items-center hidden gap-3 mb-4 md:w-1/2 lg:inline-flex md:mb-0">
+              <div className="w-12 h-12 rounded-full ">
                 <img
                   src={avatar}
-                  className="w-full h-full object-cover rounded-full"
+                  className="object-cover w-full h-full rounded-full"
                   alt="avatar"
                 ></img>
               </div>
-              <p className=" font-medium text-lg">Jesse-Maurice Iyoha</p>
+              <p className="text-lg font-medium ">Jesse-Maurice Iyoha</p>
             </div>
-            <div className="lg:w-1/2 max-sm:w-full md:w-full flex items-center justify-between">
+            <div className="flex items-center justify-between lg:w-1/2 max-sm:w-full md:w-full">
               <div className="flex items-center justify-center gap-2">
                 <button
                   onClick={handleCollection}
@@ -105,20 +105,20 @@ const ImageModal = ({ image, onClose }) => {
               </button>
             </div>
           </div>
-          <div className="w-full flex p-4 justify-center items-center mx-auto max-w-2xl">
+          <div className="flex items-center justify-center w-full max-w-2xl p-4 mx-auto">
             <div className="w-full h-full">
               <img src={image.src} alt="Modal" className="w-full h-full" />
             </div>
           </div>
-          <div className="w-full flex items-center justify-between">
-            <div className="w-full flex items-center gap-2 justify-center">
+          <div className="flex items-center justify-between w-full">
+            <div className="flex items-center justify-center w-full gap-2">
               <i
                 class="fa-solid fa-circle-check"
                 style={{ color: "#acacae" }}
               ></i>
               <p>Free to use</p>
             </div>
-            <div className="w-full py-8 flex items-center justify-center gap-3">
+            <div className="flex items-center justify-center w-full gap-3 py-8 max-sm:py-1">
               <button
                 onClick={openImageDetailsModal}
                 className="px-5 py-2 text-[#000000] flex items-center justify-center gap-2 bg-transparent rounded-lg border-2 hover:border-[#bfbdbd]"

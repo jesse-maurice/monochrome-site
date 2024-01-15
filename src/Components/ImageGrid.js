@@ -96,7 +96,7 @@ const ImageGrid = () => {
   // Function to toggle bookmark modal
 
   return (
-    <div className="grid-container px-4 lg:px-10 max-sm:px-4 md:px-10 xl:px-10 2xl:px-44">
+    <div className="px-4 grid-container lg:px-10 max-sm:px-4 md:px-10 xl:px-10 2xl:px-44">
       <div className="flex flex-row content-center justify-between w-full">
         <h1 className="font-rale font-semibold text-2xl py-[60px] md:py-[40px] max-sm:hidden">
           Free Stock Photos
@@ -131,7 +131,7 @@ const ImageGrid = () => {
             {filteredImages.map((image, index) => (
               <li
                 key={index}
-                className="relative cursor-pointer list-none "
+                className="relative list-none cursor-pointer "
                 onClick={() => openModal(image)}
               >
                 <img
@@ -140,8 +140,8 @@ const ImageGrid = () => {
                   className="w-auto h-auto cursor-pointer"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-10 transition-opacity duration-300">
-                  <div className="flex items-center gap-2 h-full w-full opacity-0 hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute inset-0 transition-opacity duration-300 bg-black bg-opacity-0 hover:bg-opacity-10">
+                  <div className="flex items-center w-full h-full gap-2 transition-opacity duration-300 opacity-0 hover:opacity-100">
                     <button
                       onClick={toggleBookmarkModal}
                       className="px-4 py-3 absolute top-3 right-[78px] text-[#000000] bg-white font-semibold flex items-center justify-center gap-2 bg-transparent rounded-lg border-[1px] hover:border-[#bfbdbd]"

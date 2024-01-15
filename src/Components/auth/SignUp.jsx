@@ -9,7 +9,7 @@ import {
   useNavigate,
 } from 'react-router-dom';
 
-import loginImg from '../../assets/images/IMG_4195.webp';
+import SignUpImg from '../../assets/images/signup image.webp';
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -40,7 +40,7 @@ const SignUp = () => {
       const user = userCredential.user;
       localStorage.setItem("token", user.accessToken);
       localStorage.setItem("user", JSON.stringify(user));
-      navigate("/home");
+      navigate("/");
     } catch (error) {
       console.error(error);
       // Custom error messages based on Firebase error codes
@@ -62,16 +62,16 @@ const SignUp = () => {
 
   return (
     <>
-      <div className="relative w-full h-screen bg-zinc-900/90">
+      <div className="relative w-full h-screen bg-zinc-900/80">
         <img
           className="absolute object-cover w-full h-full mix-blend-overlay"
-          src={loginImg}
+          src={SignUpImg}
           alt="/"
         />
 
         <div className="absolute inset-0 flex items-center justify-center h-full">
           <form
-            className="max-w-[400px] w-full mx-auto bg-white p-8"
+            className="max-w-[400px] rounded-xl w-full mx-auto bg-white p-8"
             onSubmit={handleSignUp}
             noValidate
           >
@@ -80,12 +80,12 @@ const SignUp = () => {
             </h2>
 
             {/* Error Message */}
-            {error && <p className="text-red-500 text-center">{error}</p>}
+            {error && <p className="text-center text-red-500">{error}</p>}
 
             <div className="flex flex-col mt-5 mb-4">
               <label>Full Name</label>
               <input
-                className="relative p-2 bg-gray-100 border focus:outline-black font-light text-[#7f7f7f] solid"
+                className="relative rounded-lg p-2 bg-gray-100 border focus:outline-black font-light text-[#7f7f7f] solid"
                 type="text"
                 name="fullName"
                 placeholder="full name"
@@ -99,7 +99,7 @@ const SignUp = () => {
             <div className="flex flex-col mt-5 mb-4">
               <label htmlFor="email">Email</label>
               <input
-                className="relative p-2 bg-gray-100 border font-light focus:outline-black text-[#7f7f7f] solid"
+                className="relative p-2 rounded-lg bg-gray-100 border font-light focus:outline-black text-[#7f7f7f] solid"
                 type="email"
                 name="email"
                 id="email"
@@ -114,7 +114,7 @@ const SignUp = () => {
             <div className="flex flex-col mb-4">
               <label htmlFor="password">Password</label>
               <input
-                className="relative p-2 bg-gray-100 border font-light text-[#7f7f7f] focus:outline-black solid"
+                className="relative p-2 bg-gray-100 rounded-lg border font-light text-[#7f7f7f] focus:outline-black solid"
                 type="password"
                 name="password"
                 id="password"
@@ -129,7 +129,7 @@ const SignUp = () => {
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full py-3 mt-8 bg-[#ef5350] hover:bg-[#be4341] text-white"
+              className="w-full py-3 mt-8 rounded-lg bg-[#ef5350] hover:bg-[#be4341] text-white"
             >
               Sign Up
             </button>
