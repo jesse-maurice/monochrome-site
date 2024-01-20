@@ -110,18 +110,18 @@ const ImageModal = ({ image, onClose }) => {
               <img src={image.src} alt="Modal" className="w-full h-full" />
             </div>
           </div>
-          <div className="flex items-center justify-between w-full">
-            <div className="flex items-center justify-center w-full gap-2">
+          <div className="flex px-4 items-center justify-between w-full">
+            <div className="flex w-full items-center justify-start gap-2">
               <i
                 class="fa-solid fa-circle-check"
                 style={{ color: "#acacae" }}
               ></i>
               <p>Free to use</p>
             </div>
-            <div className="flex items-center justify-center w-full gap-3 py-8 max-sm:py-1">
+            <div className="flex items-center justify-end w-full gap-2 py-8 max-sm:py-1">
               <button
                 onClick={openImageDetailsModal}
-                className="px-5 py-2 text-[#000000] flex items-center justify-center gap-2 bg-transparent rounded-lg border-2 hover:border-[#bfbdbd]"
+                className="px-4 py-2 text-[#000000] flex items-center justify-center gap-2 bg-transparent rounded-lg border-[1px] hover:border-[#bfbdbd]"
               >
                 <i
                   class="fa-solid fa-circle-info"
@@ -129,7 +129,7 @@ const ImageModal = ({ image, onClose }) => {
                 ></i>
                 <span className="hidden md:inline-block">More info</span>
               </button>
-              <button className="px-5 py-2 text-[#000000] flex items-center justify-center gap-2 bg-transparent rounded-lg border-2 hover:border-[#bfbdbd]">
+              <button className="px-4 py-2 text-[#000000] flex items-center justify-center gap-2 bg-transparent rounded-lg border-[1px] hover:border-[#bfbdbd]">
                 <i
                   class="fa-solid fa-up-right-from-square"
                   style={{ color: "#5c5c5c" }}

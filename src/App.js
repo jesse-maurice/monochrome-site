@@ -5,6 +5,7 @@ import {
   Routes,
 } from 'react-router-dom';
 
+import Login from './Components/auth/Login';
 import SignUp from './Components/auth/SignUp';
 import Main from './Components/Main';
 
@@ -13,7 +14,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Main />} />
       <Route path="/SignUp" element={<SignUp />} />
-      <Route path="/home" element={<Main />} />
+      <Route path="/Login" element={<Login />} />
     </Routes>
   );
 }

@@ -28,7 +28,7 @@ const Login = () => {
       const user = userCredential.user;
       localStorage.setItem("token", user.accessToken);
       localStorage.setItem("user", JSON.stringify(user));
-      navigate("/home");
+      navigate("/");
 
       
     } catch (error) {
@@ -47,7 +47,7 @@ const Login = () => {
 
         <div className="flex absolute inset-0 items-center justify-center h-full">
           <form
-            className="max-w-[400px] w-full mx-auto bg-white p-8"
+            className="max-w-[400px] rounded-xl w-full mx-auto bg-white p-8"
             onSubmit={handleSignUp}
           >
             <h2 className="py-4 text-4xl font-bold text-center font-tide">
@@ -56,7 +56,7 @@ const Login = () => {
             <div className="flex flex-col mt-5 mb-4">
               <label>Email</label>
               <input
-                className="relative p-2 bg-gray-100 border font-light focus:outline-black text-[#7f7f7f] solid"
+                className="relative p-2 bg-gray-100 rounded-lg border font-light focus:outline-black text-[#7f7f7f] solid"
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -65,14 +65,14 @@ const Login = () => {
             <div className="flex flex-col ">
               <label>Password</label>
               <input
-                className="relative p-2 bg-gray-100 border font-light focus:outline-black text-[#7f7f7f] solid"
+                className="relative p-2 bg-gray-100 rounded-lg border font-light focus:outline-black text-[#7f7f7f] solid"
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
               <button
                 type="submit"
-                className="w-full py-3 mt-8 bg-[#ef5350] hover:bg-transparent hover:border-[3px] hover:border-[#ef5350] hover:text-[#ef5350] relative text-white"
+                className="w-full py-3 mt-8 bg-[#ef5350] hover:bg-transparent hover:border-[3px] rounded-lg hover:border-[#ef5350] hover:text-[#ef5350] relative text-white"
               >
                 Log In
               </button>

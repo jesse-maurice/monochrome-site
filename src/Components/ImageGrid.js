@@ -1,10 +1,12 @@
 import '../Components/ImageModal';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 import React, {
   useEffect,
   useState,
 } from 'react';
 
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 
 import ImageModal from '../Components/ImageModal';
@@ -97,11 +99,11 @@ const ImageGrid = () => {
 
   return (
     <div className="px-4 grid-container lg:px-10 max-sm:px-4 md:px-10 xl:px-10 2xl:px-44">
-      <div className="flex flex-row content-center justify-between w-full">
-        <h1 className="font-rale font-semibold text-2xl py-[60px] md:py-[40px] max-sm:hidden">
+      <div className="flex py-[40px] lg:py-[60px] flex-row content-center justify-between w-full">
+        <h1 className="font-rale font-semibold text-2xl  max-sm:hidden">
           Free Stock Photos
         </h1>
-        <form className="py-[60px] max-sm:py-[40px] md:py-[40px] w-full max-w-md">
+        <form className=" w-full max-sm:max-w-md lg:max-w-lg md:max-w-sm">
           <div className="relative flex items-center">
             <i className="fa-solid absolute w-[13px] h-[13px] pointer-events-none ml-3 fa-magnifying-glass fa-beat-fade"></i>
             <input
@@ -134,11 +136,11 @@ const ImageGrid = () => {
                 className="relative list-none cursor-pointer "
                 onClick={() => openModal(image)}
               >
-                <img
+                <LazyLoadImage
                   src={image.src}
                   alt={`frame${index}`}
                   className="w-auto h-auto cursor-pointer"
-                  loading="lazy"
+                  // loading="lazy"
                 />
                 <div className="absolute inset-0 transition-opacity duration-300 bg-black bg-opacity-0 hover:bg-opacity-10">
                   <div className="flex items-center w-full h-full gap-2 transition-opacity duration-300 opacity-0 hover:opacity-100">
