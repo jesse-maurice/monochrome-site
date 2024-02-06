@@ -36,12 +36,12 @@ const Navbar = () => {
   return (
     <>
       <div className="z-10 flex flex-row items-center content-center justify-between w-full border-box px-44 max-sm:px-4 md:px-10 lg:px-10 xl:px-10 2xl:px-44">
-        <h1 className=" font-tide text-[50px] max-sm:text-[40px] text-[#ffffff]">
+        <h1 className="font-high text-[50px] max-sm:text-[40px] text-[#ffffff]">
           m
         </h1>
         <Link to={user ? "/" : "/SignUp"}>
           <button
-            className={`bg-[#ef5350] text-white tracking-wide font-tide px-[20px] outline-none mt-3 border-none max-sm:py-[7px] max-sm:px-[20px] max-sm:text-lg transition ease-in delay-150 hover:translate-y-1 hover:scale-40 hover:bg-[#ef5350] duration-300 py-[10px] rounded-lg`}
+            className={`bg-[#ef5350] text-white tracking-wider font-tide px-[20px] outline-none mt-3 border-none max-sm:py-[7px] max-sm:px-[20px] max-sm:text-base transition ease-in delay-150 hover:translate-y-1 hover:scale-40 hover:bg-[#ef5350] duration-300 py-[10px] rounded-lg`}
             type="submit"
             onClick={user ? handleLogout : null}
           >

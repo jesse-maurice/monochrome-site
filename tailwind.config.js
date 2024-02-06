@@ -7,7 +7,8 @@ module.exports = {
     extend: {
       fontFamily: {
         'rale': ['Raleway', 'sans-serif'],
-        'tide': ['High Tide', 'sans-serif'],
+        'tide': ['High Tide Sans', 'sans-serif'],
+        'high': ['High Tide', 'sans-serif'],
       }
     },
   },

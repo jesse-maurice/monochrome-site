@@ -3,6 +3,14 @@
 @tailwind utilities;
 
 @font-face{
+  font-family: "High Tide Sans";
+  src: local('High Tide Sans'),
+  url("/src/assets/fonts/HighTide\ Sans.otf") format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face{
   font-family: "High Tide";
   src: local('High Tide'),
   url("/src/assets/fonts/HighTide.otf") format('opentype');
