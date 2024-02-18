@@ -41,7 +41,7 @@ const Navbar = () => {
         </h1>
         <Link to={user ? "/" : "/SignUp"}>
           <button
-            className={`bg-[#ef5350] text-white tracking-wider font-tide px-[20px] outline-none mt-3 border-none max-sm:py-[7px] max-sm:px-[20px] max-sm:text-base transition ease-in delay-150 hover:translate-y-1 hover:scale-40 hover:bg-[#ef5350] duration-300 py-[10px] rounded-lg`}
+            className={`bg-[#ef5350] flex items-center justify-center text-white tracking-wider font-high px-[20px] outline-none mt-3 border-none max-sm:py-[7px] max-sm:px-[20px] max-sm:text-base transition ease-in delay-150 hover:translate-y-1 hover:scale-40 hover:bg-[#ef5350] duration-300 py-[10px] rounded-lg`}
             type="submit"
             onClick={user ? handleLogout : null}
           >

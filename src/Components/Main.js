@@ -29,7 +29,7 @@ const Main = () => {
               creative needs.
             </p>
             <button
-              className="bg-[#ef5350] border-2 border-transparent hover:bg-transparent hover:border-[#ef5350] rounded-3xl mt-5 font-tide cursor-pointer w-56 font-medium mx-auto py-[10px] max-sm:mt-5 max-sm:px-[50px] max-sm:text-[12px] text-[#ffffff] transition duration-300 ease-in-out md:text-base lg:text-sm xl:text-sm pointer-events-none tracking-widest"
+              className="bg-[#ef5350] border-2 border-transparent hover:bg-transparent hover:border-[#ef5350] rounded-3xl mt-5 font-high cursor-pointer font-medium mx-auto py-[10px] max-sm:mt-5 max-sm:px-[35px] md:px-[40px] lg:px-[50px] max-sm:text-[12px] text-[#ffffff] transition duration-300 ease-in-out md:text-base lg:text-sm xl:text-sm tracking-widest"
               type="submit"
             >
               Join Community
