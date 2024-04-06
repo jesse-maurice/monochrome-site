@@ -75,7 +75,7 @@ const SignUp = () => {
             onSubmit={handleSignUp}
             noValidate
           >
-            <h2 className="py-4 text-4xl font-bold text-center font-tide">
+            <h2 className="py-4 text-4xl font-bold text-center font-high">
               MONOCHROME.
             </h2>
 

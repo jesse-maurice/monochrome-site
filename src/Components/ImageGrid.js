@@ -100,10 +100,10 @@ const ImageGrid = () => {
   return (
     <div className="px-4 grid-container lg:px-10 max-sm:px-4 md:px-10 xl:px-10 2xl:px-44">
       <div className="flex py-[40px] lg:py-[60px] flex-row content-center justify-between w-full">
-        <h1 className="font-rale font-semibold text-2xl  max-sm:hidden">
+        <h1 className="text-2xl font-semibold font-rale max-sm:hidden">
           Free Stock Photos
         </h1>
-        <form className=" w-full max-sm:max-w-md lg:max-w-lg md:max-w-sm">
+        <form className="w-full max-sm:max-w-md lg:max-w-lg md:max-w-sm">
           <div className="relative flex items-center">
             <i className="fa-solid absolute w-[13px] h-[13px] pointer-events-none ml-3 fa-magnifying-glass fa-beat-fade"></i>
             <input
@@ -170,7 +170,7 @@ const ImageGrid = () => {
                       href={image.src}
                       download
                       onClick={(e) => e.stopPropagation()}
-                      className="flex items-center font-medium absolute bottom-5 right-5 max-sm:bg-transparent md:bg-[#ffffff] max-sm:text-[#ffffff] md:text-black md:rounded-lg md:py-3 md:px-3 md:hover:bg-[#ffffff] lg:bg-[#ef5350] lg:hover:bg-[#c85655] max-sm:hover:bg-[#ffffff]  max-sm:hover:text-black max-sm:hover:rounded-lg max-sm:hover:px-3 max-sm:hover:py-3 lg:py-2 lg:px-5 lg:rounded-full content-center justify-center gap-2 lg:text-[#ffffff]"
+                      className="flex items-center font-medium absolute bottom-5 right-5 max-sm:bg-transparent md:bg-[#ffffff] max-sm:text-[#ffffff] md:text-black md:rounded-lg md:py-3 md:px-3 md:hover:bg-[#ffffff] lg:bg-[#ef5350] lg:hover:bg-[#c85655] max-sm:hover:bg-[#ffffff]  max-sm:hover:text-black max-sm:hover:rounded-lg max-sm:hover:px-3 max-sm:hover:py-3 lg:py-2 lg:px-3 lg:rounded-xl content-center justify-center gap-2 lg:text-[#ffffff]"
                     >
                       <i class="fa-solid fa-download"></i>
                       <span className="hidden lg:inline">Download</span>

@@ -45,12 +45,12 @@ const Login = () => {
           alt="/"
         />
 
-        <div className="flex absolute inset-0 items-center justify-center h-full">
+        <div className="absolute inset-0 flex items-center justify-center h-full">
           <form
             className="max-w-[400px] rounded-xl w-full mx-auto bg-white p-8"
             onSubmit={handleSignUp}
           >
-            <h2 className="py-4 text-4xl font-bold text-center font-tide">
+            <h2 className="py-4 text-4xl font-bold text-center font-high">
               MONOCHROME.
             </h2>
             <div className="flex flex-col mt-5 mb-4">
