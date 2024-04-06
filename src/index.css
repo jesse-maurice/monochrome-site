@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+
 @font-face{
   font-family: "High Tide Sans";
   src: local('High Tide Sans'),
@@ -17,3 +20,18 @@
   font-weight: normal;
   font-style: normal;
 }
+
+
+.tooltip-arrow {
+  position: absolute;
+  top: -10px; /* Adjust as needed */
+  right: 20px; /* Adjust as needed */
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid white; /* Adjust color as needed */
+}
+
+
+

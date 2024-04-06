@@ -100,7 +100,7 @@ const ImageGrid = () => {
   return (
     <div className="px-4 grid-container lg:px-10 max-sm:px-4 md:px-10 xl:px-10 2xl:px-44">
       <div className="flex py-[40px] lg:py-[60px] flex-row content-center justify-between w-full">
-        <h1 className="text-2xl font-semibold font-rale max-sm:hidden">
+        <h1 className="text-2xl font-medium font-sans max-sm:hidden">
           Free Stock Photos
         </h1>
         <form className="w-full max-sm:max-w-md lg:max-w-lg md:max-w-sm">
@@ -111,7 +111,7 @@ const ImageGrid = () => {
               name="search"
               placeholder="Search Images..."
               autoComplete="off"
-              className="w-full px-3 py-[10px] max-sm:py-[15px] pl-10 font-semibold placeholder-gray-500 text-black rounded-2xl border-none ring-2 ring-gray-300 focus:ring-gray-500 focus:ring-2"
+              className="w-full px-3 py-[10px] max-sm:py-[15px] pl-10 font-medium placeholder-gray-500 text-black rounded-2xl border-none ring-2 ring-gray-300 focus:ring-gray-500 focus:ring-2 font-sans"
               value={searchValue}
               onChange={(e) => setSearchValue(e.target.value)}
             ></input>

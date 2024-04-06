@@ -9,6 +9,7 @@ module.exports = {
         'rale': ['Raleway', 'sans-serif'],
         'tide': ['High Tide Sans', 'sans-serif'],
         'high': ['High Tide', 'sans-serif'],
+        'sans': ['DM Sans', 'sans-serif']
       }
     },
   },

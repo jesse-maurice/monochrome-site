@@ -18,22 +18,22 @@ const Main = () => {
         />
 
         <div className="absolute inset-0 flex items-center justify-center ">
-          <div className="flex flex-col text-center max-w-[630px] max-sm:px-6 border-box pt-12">
-            <h1 className=" font-rale capitalize font-semibold max-sm:leading-[35px] text-[#ffffff] md:text-[33px] md:leading-[40px] lg:text-[33px] lg:leading-[40px] -tracking-tight fill-[#ffffff] px-4 max-sm:text-[28px]  ">
+          <div className="flex flex-col text-center max-w-[600px] 2xl:max-w-[700px] max-sm:px-6 border-box pt-12">
+            <h1 className="font-sans capitalize font-Light 2xl:font-Light max-sm:leading-[35px] text-[#ffffff] md:text-[33px] md:leading-[40px] lg:text-[33px] 2xl:text-[40px] lg:leading-[40px] 2xl:leading-[45px] -tracking-tight 2xl:tracking-wide fill-[#ffffff] px-4 max-sm:text-[28px]  ">
               providing afrocentric stock images for your business and
               creativity.
             </h1>
-            <p className=" capitalize lg:mt-2 max-sm:mt-1 md:mt-1 lg:text-[16px] md:text-[15px] max-sm:text-[13px] text-[#9e9c9c]">
+            <p className=" capitalize lg:mt-2 max-sm:mt-1 md:mt-1 lg:text-[16px] md:text-[15px] max-sm:text-[13px] text-[#9e9c9c] font-sans">
               we are a stock image company that focuses on providing timeless
               elegance of monochromatic photography for your business and
               creative needs.
             </p>
-            <button
-              className="bg-[#ef5350] border-2 border-transparent hover:bg-transparent hover:border-[#ef5350] rounded-3xl mt-5 font-high cursor-pointer font-medium mx-auto py-[10px] max-sm:mt-5 max-sm:px-[35px] md:px-[40px] lg:px-[50px] max-sm:text-[12px] text-[#ffffff] transition duration-300 ease-in-out md:text-base lg:text-sm xl:text-sm tracking-widest"
+            {/* <button
+              className="bg-[#ef5350] border-2 border-transparent hover:bg-transparent hover:border-[#ef5350] rounded-3xl mt-5 font-sans cursor-pointer font-extralight mx-auto py-[10px] max-sm:mt-5 max-sm:px-[35px] md:px-[40px] lg:px-[35px] max-sm:text-[12px] text-[#ffffff] transition duration-300 ease-in-out md:text-lg lg:text-lg 2xl:text-sm tracking-widest"
               type="submit"
             >
               Join Community
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
