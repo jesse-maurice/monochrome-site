@@ -23,6 +23,13 @@ const SignUp = () => {
     e.preventDefault();
     setError(""); // Reset error message
 
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setError("Please enter a valid email address");
+      return;
+    }
+
     // Check if the email contains 'test'
     if (email.toLowerCase().includes("test")) {
       setError("Sign up with a valid email address");
