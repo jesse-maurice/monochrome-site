@@ -89,7 +89,7 @@ const SignUp = () => {
             {/* Error Message */}
             {error && <p className="text-center text-red-500">{error}</p>}
 
-            <div className="flex flex-col mt-5 mb-4">
+            <div className="flex flex-col mt-5 mb-4 font-semibold font-jakarta">
               <label>Full Name</label>
               <input
                 className="relative rounded-lg p-2 bg-gray-100 border focus:outline-black font-light text-[#7f7f7f] solid"
@@ -103,7 +103,7 @@ const SignUp = () => {
             </div>
 
             {/* Email Input */}
-            <div className="flex flex-col mt-5 mb-4">
+            <div className="flex flex-col mt-5 mb-4 font-semibold font-jakarta">
               <label htmlFor="email">Email</label>
               <input
                 className="relative p-2 rounded-lg bg-gray-100 border font-light focus:outline-black text-[#7f7f7f] solid"
@@ -118,7 +118,7 @@ const SignUp = () => {
             </div>
 
             {/* Password Input */}
-            <div className="flex flex-col mb-4">
+            <div className="flex flex-col mb-4 font-semibold font-jakarta">
               <label htmlFor="password">Password</label>
               <input
                 className="relative p-2 bg-gray-100 rounded-lg border font-light text-[#7f7f7f] focus:outline-black solid"
@@ -136,12 +136,12 @@ const SignUp = () => {
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full py-3 mt-8 rounded-lg bg-[#ef5350] hover:bg-[#be4341] text-white"
+              className="w-full py-3 mt-8 rounded-lg font-semibold font-jakarta bg-[#ef5350] hover:bg-[#be4341] text-white"
             >
               Sign Up
             </button>
 
-            <p className="mt-8 text-center">
+            <p className="mt-8 text-center font-medium font-jakarta text-[#7f7f7f]">
               Already a member?
               <span className="font-medium text-[#ef5350]">
                 <Link to="/login"> Log in</Link>

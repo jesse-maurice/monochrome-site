@@ -53,26 +53,28 @@ const Login = () => {
             <h2 className="py-4 text-4xl font-bold text-center font-high">
               MONOCHROME.
             </h2>
-            <div className="flex flex-col mt-5 mb-4">
+            <div className="flex flex-col mt-5 mb-4 font-semibold font-jakarta">
               <label>Email</label>
               <input
-                className="relative p-2 bg-gray-100 rounded-lg border font-light focus:outline-black text-[#7f7f7f] solid"
+                className="relative p-2 bg-gray-100 rounded-lg border font-medium focus:outline-black text-[#7f7f7f] solid"
                 type="email"
+                placeholder="example@gmail.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
-            <div className="flex flex-col ">
+            <div className="flex flex-col font-semibold font-jakarta ">
               <label>Password</label>
               <input
-                className="relative p-2 bg-gray-100 rounded-lg border font-light focus:outline-black text-[#7f7f7f] solid"
+                className="relative p-2 bg-gray-100 rounded-lg border font-medium focus:outline-black text-[#7f7f7f] solid"
                 type="password"
+                placeholder="********"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
               <button
                 type="submit"
-                className="w-full py-3 mt-8 bg-[#ef5350] hover:bg-transparent hover:border-[3px] rounded-lg hover:border-[#ef5350] hover:text-[#ef5350] relative text-white"
+                className="w-full py-3 mt-8 bg-[#ef5350] font-semibold font-jakarta hover:bg-transparent hover:border-[3px] rounded-lg hover:border-[#ef5350] hover:text-[#ef5350] relative text-white"
               >
                 Log In
               </button>

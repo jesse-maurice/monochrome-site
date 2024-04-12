@@ -37,6 +37,21 @@ const Navbar = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [isExploreOpen, setIsExploreOpen] = useState(false);
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const [isSticky, setIsSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      // Change this value to the scroll distance at which you want the navbar to become sticky
+      const scrollThreshold = 400;
+      setIsSticky(scrollPosition > scrollThreshold);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const toggleNavMenu = () => {
     setIsNavOpen(!isNavOpen);
@@ -92,16 +107,20 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="z-10 flex flex-row items-center content-center justify-between w-full border-box px-44 max-sm:px-4 md:px-10 lg:px-10 xl:px-10 2xl:px-44">
+      <div
+        className={`z-10 flex flex-row items-center content-center justify-between w-full border-box px-44 max-sm:px-4 md:px-10 lg:px-10 xl:px-10 2xl:px-44 ${
+          isSticky ? "sticky top-0 bg-white" : ""
+        } `}
+      >
         <h1 className="font-high text-[50px] max-sm:text-[40px] text-[#ffffff]">
           m
         </h1>
-        <div className="flex items-center font-sans lg:gap-8 2xl:gap-8 max-sm:gap-3 md:gap-4">
+        <div className="flex items-center mt-2 font-jakarta lg:gap-8 2xl:gap-8 max-sm:gap-3 md:gap-4">
           <div
             className="relative flex items-center gap-2 max-sm:hidden md:hidden lg:inline-flex 2xl:inline-flex"
             onClick={toggleExploreDropdown}
           >
-            <p className="text-lg text-white cursor-pointer hover:text-gray-300">
+            <p className="text-[16px] font-semibold leading-[26px] text-white cursor-pointer hover:text-gray-300">
               Explore
             </p>
             <i
@@ -113,7 +132,7 @@ const Navbar = () => {
             {isExploreOpen && (
               <div className="absolute z-20 bg-white rounded-lg shadow-lg -right-6 top-12 w-44">
                 <div className="tooltip-arrow"></div>
-                <div className="flex flex-col w-full py-2 font-sans font-medium">
+                <div className="flex flex-col w-full py-2 font-semibold font-jakarta">
                   <a
                     href="/"
                     className="flex items-start px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
@@ -148,9 +167,12 @@ const Navbar = () => {
               </div>
             )}
           </div>
-          <p className="text-lg text-white cursor-pointer max-sm:hidden md:hidden lg:inline-flex 2xl:inline-flex hover:text-gray-300">
-            Upload
-          </p>
+          <Link to={"/Upload"}>
+            <p className="text-[16px] font-semibold leading-[26px] text-white cursor-pointer max-sm:hidden md:hidden lg:inline-flex 2xl:inline-flex hover:text-gray-300">
+              Upload
+            </p>
+          </Link>
+
           <div className="relative max-sm:hidden md:hidden lg:inline-flex 2xl:inline-flex">
             <i
               className="text-white cursor-pointer fa-solid fa-ellipsis"
@@ -160,7 +182,7 @@ const Navbar = () => {
             {isOpen && (
               <div className="absolute z-20 mt-10 bg-white rounded-lg shadow-lg -right-6 w-44">
                 <div className="tooltip-arrow"></div>
-                <div className="flex flex-col w-full py-2 font-sans font-medium">
+                <div className="flex flex-col w-full py-2 font-semibold font-jakarta">
                   <a
                     href="/"
                     className="flex items-start px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
@@ -215,7 +237,7 @@ const Navbar = () => {
           </div>
           <Link to={user ? "/" : "/SignUp"}>
             <button
-              className={`bg-[#ef5350] flex items-center justify-center text-white tracking-wider px-[16px] font-light outline-none border-none max-sm:py-[7px] max-sm:px-[20px] max-sm:text-base md:text-lg transition ease-in delay-150 hover:translate-y-1 hover:scale-40 hover:bg-[#ef5350] duration-300 py-[10px] rounded-lg`}
+              className={`bg-[#ef5350] flex items-center justify-center text-white tracking-wider px-[16px] outline-none border-none max-sm:py-[7px] font-semibold max-sm:px-[20px] max-sm:text-base md:text-lg 2xl:text-[16px] 2xl:leading-[20.8px] transition ease-in delay-150 hover:translate-y-1 hover:scale-40 hover:bg-[#ef5350] duration-300 py-[10px] rounded-lg`}
               type="submit"
               onClick={user ? handleLogout : null}
             >
@@ -234,7 +256,7 @@ const Navbar = () => {
                   <h1 className="font-high text-[50px] max-sm:text-[40px] text-[#ffffff]">
                     m
                   </h1>
-                  <form className="w-full max-sm:max-w-[300px] lg:max-w-lg md:max-w-2xl">
+                  <form className="w-full max-sm:max-w-[230px] lg:max-w-lg md:max-w-2xl">
                     <div className="relative flex items-center">
                       <i className="fa-solid absolute w-[5px] h-[5px] pointer-events-none ml-3 fa-magnifying-glass fa-beat-fade"></i>
                       <input
@@ -250,7 +272,7 @@ const Navbar = () => {
                   </form>
                 </div>
                 <div className=" w-full h-[0.2px] mt-3 bg-gray-700"></div>
-                <ul className="flex flex-col items-start font-sans text-xl font-medium text-white ">
+                <ul className="flex flex-col items-start text-xl font-semibold text-white font-jakarta ">
                   <li className="py-2 mt-4 hover:text-gray-300">
                     <a href="/">Home</a>
                   </li>
@@ -271,7 +293,7 @@ const Navbar = () => {
                   </li>
                 </ul>
                 <div className=" w-full h-[0.2px] mt-6 bg-gray-700"></div>
-                <ul className="flex flex-col items-start font-sans text-xl font-medium text-white">
+                <ul className="flex flex-col items-start text-xl font-semibold text-white font-jakarta">
                   <li className="py-2 mt-6 hover:text-gray-300">
                     <a href="/">Login</a>
                   </li>
@@ -280,7 +302,7 @@ const Navbar = () => {
                   </li>
                 </ul>
                 <div className=" w-full h-[0.2px] mt-6 bg-gray-700"></div>
-                <ul className="flex flex-col items-start font-sans text-xl font-medium text-white">
+                <ul className="flex flex-col items-start text-xl font-semibold text-white font-jakarta">
                   <li className="py-2 mt-6 hover:text-gray-300">
                     <a href="/">FAQ</a>
                   </li>
