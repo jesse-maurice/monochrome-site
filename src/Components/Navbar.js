@@ -108,14 +108,14 @@ const Navbar = () => {
   return (
     <>
       <div
-        className={`z-10 flex flex-row items-center content-center justify-between w-full border-box px-44 max-sm:px-4 md:px-10 lg:px-10 xl:px-10 2xl:px-44 ${
+        className={`z-10 py-1 flex flex-row items-center content-center justify-between w-full border-box px-44 max-sm:px-4 md:px-10 lg:px-10 xl:px-10 2xl:px-44 ${
           isSticky ? "sticky top-0 bg-white" : ""
         } `}
       >
-        <h1 className="font-high text-[50px] max-sm:text-[40px] text-[#ffffff]">
+        <h1 className="flex items-center justify-center pt-2 font-high text-[50px] max-sm:text-[40px] text-[#ffffff]">
           m
         </h1>
-        <div className="flex items-center mt-2 font-jakarta lg:gap-8 2xl:gap-8 max-sm:gap-3 md:gap-4">
+        <div className="flex items-center font-jakarta lg:gap-8 2xl:gap-8 max-sm:gap-3 md:gap-4">
           <div
             className="relative flex items-center gap-2 max-sm:hidden md:hidden lg:inline-flex 2xl:inline-flex"
             onClick={toggleExploreDropdown}
@@ -184,14 +184,14 @@ const Navbar = () => {
                 <div className="tooltip-arrow"></div>
                 <div className="flex flex-col w-full py-2 font-semibold font-jakarta">
                   <a
-                    href="/"
+                    href="/Login"
                     className="flex items-start px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                   >
                     Login
                   </a>
                   <div className="w-full h-[1px] bg-gray-100"></div>
                   <a
-                    href="/"
+                    href="/SignUp"
                     className="flex items-start px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                   >
                     Join
@@ -253,7 +253,7 @@ const Navbar = () => {
             <div className="fixed inset-0 z-50 bg-black">
               <nav className="fixed top-0 left-0 flex flex-col items-start w-full h-full px-5 ">
                 <div className="flex items-center w-full gap-4 ">
-                  <h1 className="font-high text-[50px] max-sm:text-[40px] text-[#ffffff]">
+                  <h1 className="font-high text-[50px] mt-5 max-sm:text-[40px] text-[#ffffff]">
                     m
                   </h1>
                   <form className="w-full max-sm:max-w-[230px] lg:max-w-lg md:max-w-2xl">
@@ -295,10 +295,10 @@ const Navbar = () => {
                 <div className=" w-full h-[0.2px] mt-6 bg-gray-700"></div>
                 <ul className="flex flex-col items-start text-xl font-semibold text-white font-jakarta">
                   <li className="py-2 mt-6 hover:text-gray-300">
-                    <a href="/">Login</a>
+                    <a href="/Login">Login</a>
                   </li>
                   <li className="py-2 hover:text-gray-300">
-                    <a href="/">Join</a>
+                    <a href="/SignUp">Join</a>
                   </li>
                 </ul>
                 <div className=" w-full h-[0.2px] mt-6 bg-gray-700"></div>
@@ -334,7 +334,7 @@ const Navbar = () => {
                   </a>
                 </div>
                 <button
-                  className="absolute p-4 right-1 top-2 md:top-4"
+                  className="absolute p-4 right-1 top-4 md:top-6"
                   onClick={toggleNavMenu}
                 >
                   <i className="text-white fas fa-times fa-xl"></i>

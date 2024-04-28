@@ -20,7 +20,7 @@
     "react-lazy-load": "^4.0.1",
     "react-lazy-load-image-component": "^1.6.0",
     "react-responsive-masonry": "^2.1.7",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "swiper": "^11.1.1",
     "web-vitals": "^2.1.4"
   },
