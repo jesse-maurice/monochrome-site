@@ -23,6 +23,30 @@
   font-style: normal;
 }
 
+.w-12:hover {
+  background-color: #ffffff;
+}
+
+.w-12:hover i {
+  color: #000000;
+}
+
+
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+h4 {
+  animation: marquee 10s linear infinite;
+}
+
+
 
 
 

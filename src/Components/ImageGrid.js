@@ -96,9 +96,9 @@ const ImageGrid = () => {
 
 
   return (
-    <div className="px-4 grid-container lg:px-10 max-sm:px-4 md:px-10 xl:px-10 2xl:px-44">
+    <div className="px-4 grid-container bg-[#0f0f0f] lg:px-10 max-sm:px-4 md:px-10 xl:px-10 2xl:px-10">
       <div className="flex py-[40px] lg:py-[60px] flex-row content-center justify-between w-full">
-        <h1 className="text-2xl font-medium  font-jakarta max-sm:hidden">
+        <h1 className="text-4xl text-white font-medium  font-jakarta max-sm:hidden">
           Free Stock Photos
         </h1>
         <form className="w-full max-sm:max-w-md lg:max-w-lg md:max-w-sm">
