@@ -301,7 +301,7 @@ const Navbar = () => {
                       <a href="/">Challenges</a>
                     </li>
                     <li className="py-2 hover:text-gray-300">
-                      <a href="https://monoblog.framer.website/">Blog</a>
+                      <a target="_blank" href="https://monoblog.framer.website/">Blog</a>
                     </li>
                   </ul>
                   <div className=" w-full h-[0.2px] mt-6 bg-gray-700"></div>
