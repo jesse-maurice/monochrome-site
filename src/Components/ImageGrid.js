@@ -137,7 +137,7 @@ const ImageGrid = () => {
                 <LazyLoadImage
                   src={image.src}
                   alt={`frame${index}`}
-                  className="w-auto h-auto cursor-pointer"
+                  className="w-auto h-auto cursor-pointer rounded-2xl"
                   // loading="lazy"
                 />
                 <div className="absolute inset-0 transition-opacity duration-300 bg-black bg-opacity-0 hover:bg-opacity-10">
