@@ -107,7 +107,7 @@ const ImageModal = ({ image, onClose }) => {
           </div>
           <div className="flex items-center justify-center w-full max-w-2xl p-4 mx-auto">
             <div className="w-full h-full">
-              <img src={image.src} alt="Modal" className="w-full h-full" />
+              <img src={image.src} alt="Modal" className="w-full h-full rounded-xl" />
             </div>
           </div>
           <div className="flex px-4 items-center justify-between w-full">
