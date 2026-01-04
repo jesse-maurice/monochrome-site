@@ -4,6 +4,7 @@ import {
   Route,
   Routes,
 } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 
 import Login from './Components/auth/Login';
 import SignUp from './Components/auth/SignUp';
@@ -12,12 +13,15 @@ import Upload from './Components/Upload';
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Main />} />
-      <Route path="/SignUp" element={<SignUp />} />
-      <Route path="/Login" element={<Login />} />
-      <Route path="/Upload" element={<Upload />} />
-    </Routes>
+    <>
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/SignUp" element={<SignUp />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/Upload" element={<Upload />} />
+      </Routes>
+      <Analytics />
+    </>
   );
 }
 
